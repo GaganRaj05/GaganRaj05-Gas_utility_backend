@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Request</title>
+    <link rel="stylesheet" href="{% static 'styles/service_request.css' %}">
+</head>
+<body>
+    <center>
+        <h1 style="color:#CC6666;  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+">Book a service</h1>
+    </center>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <!-- File Upload Field -->
+        <input type="file" name="file" class="feedback-input" />
+        
+        <!-- Service Type Dropdown -->
+        <select name="service_type" class="feedback-input">
+            <option value="gas refill">Gas Refill</option>
+            <option value="gas fitting">Gas Fitting</option>
+            <option value="other">Other</option>
+        </select>
+        
+        <!-- Description Textarea -->
+        <textarea name="description" class="feedback-input" placeholder="Description"></textarea>
+        
+        <!-- Submit Button -->
+        <input type="submit" value="SUBMIT" />
+    </form>
+</body>
+</html>

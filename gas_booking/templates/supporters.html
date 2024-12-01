@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Requests</title>
+</head>
+<body>
+    <h1>Service Requests</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Phone Number</th>
+                <th>Service Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request, phone_number in zipped_requests %}
+                <tr>
+                    <td>{{ request.username }}</td>
+                    <td>{{ phone_number }}</td>
+                    <td>{{ request.service_type }}</td>
+                    <td>{{ request.description }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">No service requests found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

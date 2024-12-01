@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Requests</title>
+</head>
+<body>
+    <h1>Service Requests for {{ request.session.username }}</h1>
+    <ul>
+        {% for service in requests %}
+        <li>
+            <strong>Service Type:</strong> {{ service.service_type }}<br>
+            <strong>Description:</strong> {{ service.description }}<br>
+            <strong>Status:</strong> {{ service.status }}<br>
+            
+            <strong>File:</strong> <a href="{{ service.file.url }}">Download</a>
+        </li>
+        {% empty %}
+        <p>No requests found.</p>
+        {% endfor %}
+        <p>An employee will get in touch with you soon if u have submitted the request
+    </ul>
+</body>
+</html>
